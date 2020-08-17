@@ -34,6 +34,7 @@
           </v-list-item>
         </template>
       </v-list>
+      
     </v-navigation-drawer>
 
     <v-main>
