@@ -1,13 +1,28 @@
 
 <template>
   <v-app id="keep">
-    <v-app-bar app clipped-left color="purple">
+    <v-app-bar app clipped-left color="deep-purple accent-4 altura" dark >
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <span class="title ml-3 mr-5 white--text">
-        Powerful&nbsp;
-        <span class="font-weight-light">Notes</span>
-      </span>
-      <v-text-field solo-inverted flat hide-details label="Search" prepend-inner-icon="search"></v-text-field>
+      <v-row class="ml-4">
+        <v-col cols="12" sm="6" class="app-name">
+          <span class="title mr-5 white--text">
+          Powerful&nbsp;
+          <span class="font-weight-light">Notes</span>
+        </span>
+        </v-col>
+
+        <v-col cols="12" sm="6" class="search-bar">
+          <v-text-field
+          color="purple lighten-3"
+          flat
+          hide-details
+          label="Search"
+          prepend-inner-icon="search"
+        ></v-text-field>
+        </v-col>
+        
+        
+      </v-row>
 
       <v-spacer></v-spacer>
     </v-app-bar>
@@ -34,7 +49,6 @@
           </v-list-item>
         </template>
       </v-list>
-      
     </v-navigation-drawer>
 
     <v-main>
@@ -76,4 +90,28 @@ export default {
 #keep .v-navigation-drawer__border {
   display: none;
 }
+
+.app-name{
+  padding: 0 !important;
+}
+
+.search-bar{
+  padding:0 !important;
+}
+
+@media only screen and (max-width:600px){
+  .altura{
+    height: 100px !important;
+  }
+  .app-name{
+    padding-top:35px !important;
+  }
+
+  .search-bar{
+    padding-top: 20px;
+  }
+}
+
+
+
 </style>
