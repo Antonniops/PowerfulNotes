@@ -109,6 +109,7 @@ export default {
 
   .search-bar{
     padding-top: 20px;
+    max-width: 230px !important;
   }
 }
 
