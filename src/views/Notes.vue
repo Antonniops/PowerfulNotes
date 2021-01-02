@@ -1,24 +1,14 @@
 <template>
   <div class="container fill-height">
     <v-row justify="center" align="center">
-      <v-col cols="12" sm="4" v-for="(note,index) in notes" :key="index">
-        <v-card v-click-outside>
-          <v-card-title>
-            {{note.title}}
-            <v-btn class="ma-2 ml-auto icon-clickable" text icon color="red">
-              <v-icon @click="deleteNote(note.id)">delete</v-icon>
-            </v-btn>
-          </v-card-title>
-
-          <v-card-text>{{note.text}}</v-card-text>
-
-          <v-card-subtitle>
-            <v-chip class="ma-2" color="orange" text-color="white" close to="/notes">
-              <v-icon right>{{note.icon}}</v-icon>
-              <span class="ml-5">{{note.category}}</span>
-            </v-chip>
-          </v-card-subtitle>
-        </v-card>
+      <v-col cols="12" sm="4" v-for="(note, index) in notes" :key="index">
+        <note
+          :title="note.title"
+          :text="note.text"
+          :icon="note.icon"
+          :category="note.category"
+        >
+        </note>
       </v-col>
     </v-row>
 
@@ -32,32 +22,22 @@
 
 
 <script>
+import note from "@/components/NoteComponent";
+import { dummyNotes } from "@/data/notes";
+
 export default {
   data() {
     return {
-      notes: [
-        {
-          id: 1,
-          title: "Lista de la compra",
-          text: "Compar agua, leche, pan y pasta",
-          icon: "mdi-start",
-          category: "Premium"
-        },
-        {
-          id: 2,
-          title: "Top jugadores de NBA",
-          text: "Lebron James, Stephen Curry y Giannis Antetokoumpo",
-          icon: "mdi-start",
-          category: "Premium"
-        }
-      ]
+      notes: dummyNotes
     };
   },
-
+  components: {
+    note,
+  },
   methods: {
-    deleteNote: function(id) {
+    deleteNote: function (id) {
       this.notes.splice(id, 1);
-    }
-  }
+    },
+  },
 };
 </script>
