@@ -3,7 +3,7 @@
     <v-card-title>
       {{ title }}
       <v-btn class="ma-2 ml-auto icon-clickable" text icon color="red">
-        <v-icon @click="deleteNote(id)">delete</v-icon>
+        <v-icon @click="$emit('click', 1)">delete</v-icon>
       </v-btn>
     </v-card-title>
 
@@ -32,6 +32,7 @@ export default {
         },
         icon: String,
         category: String
-    }
+    },
+    methods: {},
 };
 </script>

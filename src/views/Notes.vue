@@ -7,6 +7,7 @@
           :text="note.text"
           :icon="note.icon"
           :category="note.category"
+          @click="deleteNote"
         >
         </note>
       </v-col>
@@ -23,20 +24,22 @@
 
 <script>
 import note from "@/components/NoteComponent";
-import { dummyNotes } from "@/data/notes";
 
 export default {
   data() {
     return {
-      notes: dummyNotes
+      notes: this.$store.state.notes.notes
     };
+  },
+  created() {
+    console.log(this.$store.state.notes);
   },
   components: {
     note,
   },
   methods: {
     deleteNote: function (id) {
-      this.notes.splice(id, 1);
+      this.$store.commit('deleteNote', {id})
     },
   },
 };
